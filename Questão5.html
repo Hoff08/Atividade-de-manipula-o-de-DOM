@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+        }
+        #mensagem {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Jogo de Adivinhação</h2>
+    <p>Tente adivinhar o número entre 1 e 100:</p>
+    <input type="number" id="palpite" placeholder="Digite seu palpite" min="1" max="100">
+    <button onclick="verificarPalpite()">Enviar Palpite</button>
+
+    <p id="mensagem"></p>
+
+    <script>
+        // Gera um número aleatório entre 1 e 100
+        var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+
+        function verificarPalpite() {
+            var palpite = parseInt(document.getElementById("palpite").value);
+            var mensagem = document.getElementById("mensagem");
+
+            if (isNaN(palpite) || palpite < 1 || palpite > 100) {
+                mensagem.textContent = "Por favor, digite um número válido entre 1 e 100.";
+                return;
+            }
+
+            if (palpite === numeroAleatorio) {
+                mensagem.textContent = "Parabéns! Você acertou o número " + numeroAleatorio + "!";
+                mensagem.style.color = "green";
+            } else if (palpite < numeroAleatorio) {
+                mensagem.textContent = "Muito baixo! Tente um número maior.";
+                mensagem.style.color = "red";
+            } else {
+                mensagem.textContent = "Muito alto! Tente um número menor.";
+                mensagem.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>

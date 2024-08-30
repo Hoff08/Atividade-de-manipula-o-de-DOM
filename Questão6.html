@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troca de Classes e Cores</title>
+    <style>
+        .div1, .div2, .div3 {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .cor-inicial1 {
+            background-color: red;
+        }
+
+        .cor-inicial2 {
+            background-color: green;
+        }
+
+        .cor-inicial3 {
+            background-color: blue;
+        }
+
+        .cor-alternativa1 {
+            background-color: purple;
+        }
+
+        .cor-alternativa2 {
+            background-color: orange;
+        }
+
+        .cor-alternativa3 {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Troca de Classes e Cores</h2>
+    <div class="div1 cor-inicial1"></div>
+    <div class="div2 cor-inicial2"></div>
+    <div class="div3 cor-inicial3"></div>
+    <br>
+    <button onclick="trocarClasses()">Trocar Cores</button>
+
+    <script>
+        function trocarClasses() {
+            var div1 = document.querySelector(".div1");
+            var div2 = document.querySelector(".div2");
+            var div3 = document.querySelector(".div3");
+
+            div1.classList.toggle("cor-inicial1");
+            div1.classList.toggle("cor-alternativa1");
+
+            div2.classList.toggle("cor-inicial2");
+            div2.classList.toggle("cor-alternativa2");
+
+            div3.classList.toggle("cor-inicial3");
+            div3.classList.toggle("cor-alternativa3");
+        }
+    </script>
+
+</body>
+</html>

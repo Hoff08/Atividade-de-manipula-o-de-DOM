@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Imagens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .miniatura {
+            width: 150px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .miniatura:hover {
+            transform: scale(1.1);
+        }
+        .imagem-destaque {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Galeria de Imagens</h2>
+    <img id="imagemDestaque" class="imagem-destaque" src="https://media.tenor.com/oNMafTuU4uIAAAAC/monkey-rizz.gif" alt="Imagem em destaque">
+
+    <div class="galeria">
+        <img src="https://gizmodo.uol.com.br/wp-content/blogs.dir/8/files/2021/02/nyan-cat.gif" alt="Imagem 1" class="miniatura" onclick="exibirImagem('https://via.placeholder.com/600')">
+        <img src="https://i.pinimg.com/236x/04/6c/94/046c9402848d9234130ac214d903ad08.jpg" alt="Imagem 2" class="miniatura" onclick="exibirImagem('https://via.placeholder.com/600/0000FF/808080')">
+        <img src="https://i.pinimg.com/736x/8b/d8/77/8bd87785974b1e4fc7a89af6affadf0a.jpg" alt="Imagem 3" class="miniatura" onclick="exibirImagem('https://via.placeholder.com/600/FF0000/FFFFFF')">
+        <img src="https://i.pinimg.com/564x/c7/dd/c4/c7ddc46f290c55c76ce29e931949c0b8.jpg" alt="Imagem 4" class="miniatura" onclick="exibirImagem('https://via.placeholder.com/600/FFFF00/000000')">
+        <img src="https://i.pinimg.com/736x/bc/5b/4a/bc5b4a2b59108c202455b8216ed19c12.jpg" alt="Imagem 5" class="miniatura" onclick="exibirImagem('https://via.placeholder.com/600/008000/FFFFFF')">
+    </div>
+
+    <script>
+        function exibirImagem(src) {
+            document.getElementById("imagemDestaque").src = src;
+        }
+    </script>
+
+</body>
+</html>

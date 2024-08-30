@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir Mensagem</title>
+    <script>
+        function exibirMensagem() {
+            var texto = document.getElementById("campoTexto").value;
+            var mensagem = "";
+
+            if (texto === "") {
+                mensagem = "Por favor, digite algo no campo de texto.";
+            } else {
+                mensagem = "Você digitou: " + texto;
+            }
+
+            document.getElementById("mensagem").textContent = mensagem;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Digite algo e clique no botão</h2>
+    <input type="text" id="campoTexto" placeholder="Digite algo...">
+    <button onclick="exibirMensagem()">Exibir Mensagem</button>
+
+    <p id="mensagem"></p>
+
+</body>
+</html>

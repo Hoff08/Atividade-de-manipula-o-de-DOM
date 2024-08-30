@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li.completed {
+            text-decoration: line-through;
+            color: grey;
+        }
+        button.remove {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Lista de Tarefas</h2>
+    <input type="text" id="novaTarefa" placeholder="Digite uma nova tarefa...">
+    <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+
+    <ul id="listaTarefas"></ul>
+
+    <script>
+        function adicionarTarefa() {
+            var tarefaTexto = document.getElementById("novaTarefa").value;
+            if (tarefaTexto === "") {
+                alert("Por favor, digite uma tarefa.");
+                return;
+            }
+
+            var li = document.createElement("li");
+            li.textContent = tarefaTexto;
+
+            // Adicionar um botão de remover a cada tarefa
+            var botaoRemover = document.createElement("button");
+            botaoRemover.textContent = "Remover";
+            botaoRemover.className = "remove";
+            botaoRemover.onclick = function() {
+                li.remove();
+            };
+
+            // Alternar o estado de concluída ao clicar na tarefa
+            li.onclick = function() {
+                li.classList.toggle("completed");
+            };
+
+            li.appendChild(botaoRemover);
+            document.getElementById("listaTarefas").appendChild(li);
+            document.getElementById("novaTarefa").value = "";
+        }
+    </script>
+
+</body>
+</html>
